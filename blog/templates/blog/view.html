@@ -25,14 +25,22 @@
             </div>
         </div>
     </div>
-    <div class="footer">
-        <div class="container-fluid">
-            <div class="footer-data">
-                <p><a href="">GitHub</a> | <a href="">LinkedIn</a</p>
-                <p> Created by sreeraj , FOSS@Amrita</p>
-            </div>
 
-        </div>
+    <h2>Comments</h2>
+    {% for i in comment %}
+        <h7>{{ i.date }}  by {{ i.user }}</h7>
+        <h6>{{ i.comment_text }}  </h6><a href="/blog/{{ post.id }}/delcom/{{ i.id }}"><button >delete</button> </a><br><br>
+        <a href="/blog/{{ post.id }}/editcom/{{ i.id }}"><button style="display: inline-block;">edit</button> </a><br><br>
+    {% endfor %}
+
+    <div id="div1">
+        <form action="" method="post" >
+        {% csrf_token %}
+            <div class="form-group">
+					<textarea name="comment" required class="form-control" placeholder="Enter comment" ></textarea>
+            </div>
+            <button type="submit" name="go" class="btn btn-primary btn-block">Post comment</button>
+        </form>
     </div>
 </div>
 

@@ -1,5 +1,5 @@
 from django.conf.urls import url, include
-from blog.views import home, post_detail, add_post, edit_post, del_post
+from blog.views import home, post_detail, add_post, edit_post, del_post, del_com
 
 urlpatterns = [
     url(r'^$', home, name="home"),
@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'^add/$', add_post, name="add_post"),
     url(r'^(?P<pk>[0-9]+)/edit', edit_post, name="edit"),
     url(r'^(?P<id>[0-9]+)/delete', del_post, name="delete_post"),
+    url(r'^(?P<postno>[0-9]+)/delcom/(?P<comno>[0-9]+)', del_com),
 ]
 
